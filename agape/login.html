@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Hospital Ágape</div>
+        <ul>
+            <li><a href="index.html#banner">Home</a></li>
+            <li><a href="index.html#about">Sobre</a></li>
+            <li><a href="index.html#services">Serviços</a></li>
+            <li><a href="index.html#doctors">Médicos</a></li>
+            <li><a href="index.html#feedback">Feedback</a></li>
+            <li><a href="login.html">Entrar</a></li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <h1>Cadastro</h1>
+        </header>
+        <form action="login.php" method="POST">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="role">Você é:</label>
+            <select id="role" name="role">
+                <option value="paciente">Paciente</option>
+                <option value="medico">Médico</option>
+            </select>
+            
+            <label for="specialization" id="specialization-label" style="display: none;">Especialização:</label>
+            <input type="text" id="specialization" name="specialization" style="display: none;">
+            
+            <button type="submit">Cadastrar</button>
+            <p class="login-prompt">
+                Já possui um cadastro? <a href="entrar.html">Entre agora</a> na sua conta.
+            </p>
+        </form>
+    </main>
+</body>
+<script>
+    document.getElementById('role').addEventListener('change', function() {
+        const specLabel = document.getElementById('specialization-label');
+        const specInput = document.getElementById('specialization');
+        if (this.value === 'medico') {
+            specLabel.style.display = 'block';
+            specInput.style.display = 'block';
+        } else {
+            specLabel.style.display = 'none';
+            specInput.style.display = 'none';
+        }
+    });
+</script>
+</html>
